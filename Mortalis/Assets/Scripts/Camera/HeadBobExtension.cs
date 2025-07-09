@@ -11,9 +11,9 @@ namespace Artemis
         [SerializeField] CinemachineCamera fpCamera;
 
         [Header("Headbob Settings")]
-        public float walkingAmplitude = 0.15f;
-        public float walkingFrequency = 1.5f;
-        public float transitionSpeed = 3f;
+        [SerializeField] float walkingAmplitude = 0.15f;
+        [SerializeField] float walkingFrequency = 1.5f;
+        [SerializeField] float transitionSpeed = 3f;
 
         private CinemachineBasicMultiChannelPerlin noise;
 
