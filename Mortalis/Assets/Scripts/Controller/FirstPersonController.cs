@@ -13,8 +13,6 @@ namespace Artemis
         public Vector3 CurrentVelocity { get; private set; }
         public float CurrentSpeed { get; private set; }
 
-
-
         [Header("Looking Parameters")]
         public Vector2 lookSensitivity = new Vector2(0.1f, 0.1f);
 
