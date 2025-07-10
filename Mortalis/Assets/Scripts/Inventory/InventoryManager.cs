@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InventoryManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject inventory;
+    public bool isInventoryOn;
     void Start()
     {
         
@@ -11,6 +13,15 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Tab) && isInventoryOn)
+        {
+            inventory.SetActive(false);
+            isInventoryOn = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && !isInventoryOn)
+        {
+            inventory.SetActive(true);
+            isInventoryOn = true;
+        }
     }
 }
