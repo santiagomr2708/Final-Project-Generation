@@ -9,16 +9,17 @@ public class Item : MonoBehaviour
 
     private InventoryManager inventoryManager;
 
-    private PlayerInteraction playerInteractionScript;
+    
     void Start()
     {
-        inventoryManager = GameObject.Find("Inventory HUD").GetComponent<InventoryManager>();
-        playerInteractionScript = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+        inventoryManager = GameObject.Find("Canvas").GetComponent<InventoryManager>();
+        
     }
-   
+
     // Update is called once per frame
-    void Update()
+    public void AddInventory()
     {
+        inventoryManager.AddItem(itemName, cantidad, sprite);
         
     }
 }
