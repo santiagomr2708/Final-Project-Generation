@@ -11,9 +11,14 @@ public class PlayerInteraction : MonoBehaviour
 
     private RaycastHit hit; // ahora es accesible desde cualquier método de esta clase
     private Ray ray;
+    private Item itemScript;
 
 
-    // Update is called once per frame
+    void Start()
+    {
+        itemScript = GameObject.FindWithTag("PickUp").GetComponent<Item>();
+        
+    }
     void Update()
     {
         CheckInteraction();
@@ -84,9 +89,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (Physics.Raycast(ray, out hit, playerReach))
         {
-            if (hit.transform.tag == "PickUp")
+            if (hit.transform.tag == "PickUp" )
             {
-                
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.transform.GetComponent<Item>().AddInventory();
+
+
+                }
             }
         }
         
