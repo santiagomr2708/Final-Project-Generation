@@ -9,32 +9,35 @@ public class PlayerInteraction : MonoBehaviour
     private Interactable currentInteractable;
     public Camera cameraMain;
 
+    private HasKeys hasKeysScript;
+
     private RaycastHit hit; // ahora es accesible desde cualquier método de esta clase
     private Ray ray;
+    private Item itemScript;
 
 
-    // Update is called once per frame
+    void Start()
+    {
+        itemScript = GameObject.FindWithTag("PickUp").GetComponent<Item>();
+        hasKeysScript = GameObject.Find("ConditionsManager").GetComponent<HasKeys>();
+        
+    }
     void Update()
     {
         CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
-        {
-            currentInteractable.Inteact();
-            if (currentInteractable != null && currentInteractable.CompareTag("Llaves"))
-            {
-                hasKeys = true;
-            }
-        }
-        
+       if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
+       {
+         currentInteractable.Inteact();
+       }  
+ 
     }
-
      void CheckInteraction()
     {
         
         Ray ray = new Ray(cameraMain.transform.position, cameraMain.transform.forward);
         if (Physics.Raycast(ray, out hit, playerReach))
         {
-            if (hit.collider.tag == "Interactable" || hit.collider.tag == "Llaves" || hit.collider.tag == "PickUp")
+            if (hit.collider.tag == "Interactable"  || hit.collider.tag == "PickUp")
             {
 
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
@@ -58,13 +61,12 @@ public class PlayerInteraction : MonoBehaviour
 
             {
 
-                if (Input.GetKeyDown(KeyCode.E) && hasKeys == true)
+                if (Input.GetKeyDown(KeyCode.E) && !hasKeysScript.hasKeys1)
                 {
                     hit.transform.GetComponent<DoorScript.Door>().OpenDoor();
-
-
+                 
                 }
-                else if (!hasKeys)
+                else if (hasKeysScript.hasKeys1)
                 {
                     hudControlller.instance.EnableInteraction(currentInteractable.message + " (E)");
                 }
@@ -84,9 +86,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (Physics.Raycast(ray, out hit, playerReach))
         {
-            if (hit.transform.tag == "PickUp")
+            if (hit.transform.tag == "PickUp" )
             {
-                
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.transform.GetComponent<Item>().AddInventory();
+
+
+                }
             }
         }
         
