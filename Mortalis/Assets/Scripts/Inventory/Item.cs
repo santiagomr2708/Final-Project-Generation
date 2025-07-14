@@ -20,6 +20,7 @@ public class Item : MonoBehaviour
     public void AddInventory()
     {
         inventoryManager.AddItem(itemName, cantidad, sprite);
+        Destroy(gameObject);
         
     }
 }

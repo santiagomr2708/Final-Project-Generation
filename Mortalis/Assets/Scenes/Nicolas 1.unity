@@ -798,11 +798,7 @@ MonoBehaviour:
   playerReach: 5
   hasKeys: 0
   cameraMain: {fileID: 789474235}
---- !u!1 &699066143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
-  m_PrefabInstance: {fileID: 1601028808}
-  m_PrefabAsset: {fileID: 0}
+  audioKey: {fileID: 8300000, guid: b5fd3c3fa643cb443a2c8da00c5c941e, type: 3}
 --- !u!4 &699066147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
@@ -2286,6 +2282,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093443782267337543, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3705028537381535112, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
@@ -2954,7 +2954,6 @@ MonoBehaviour:
   itemSlot: []
   hudSlotParent: {fileID: 927595131}
   slotPrefab: {fileID: 2674344928714016727, guid: a235f765eef2938428d595a399a3aa18, type: 3}
-  KeyObject: {fileID: 699066143}
   ItemSos:
   - {fileID: 11400000, guid: c6344db252d807c4391304aa1818d95d, type: 2}
 --- !u!1 &1885069468

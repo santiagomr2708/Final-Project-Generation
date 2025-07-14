@@ -7,7 +7,9 @@ public class HasKeys : MonoBehaviour
 
     public void DisableKeyObject()
     {
+        Debug.Log("Intentando desactivar el MeshRenderer...");
         MeshRenderer mesh = GameObject.Find("RustKeyObject").GetComponent<MeshRenderer>();
         mesh.enabled = false;
     }
+    
 }
