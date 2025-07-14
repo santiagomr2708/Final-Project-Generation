@@ -1,3 +1,4 @@
+using DoorScript;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,22 +15,35 @@ public class PlayerInteraction : MonoBehaviour
     private RaycastHit hit; // ahora es accesible desde cualquier método de esta clase
     private Ray ray;
     private Item itemScript;
+    private Door doorScript;
+    private bool alreadyDisabled = false;
+    AudioSource audioSource;
+    public AudioClip audioKey;
 
 
     void Start()
     {
         itemScript = GameObject.FindWithTag("PickUp").GetComponent<Item>();
         hasKeysScript = GameObject.Find("ConditionsManager").GetComponent<HasKeys>();
+        doorScript = GameObject.Find("Door").GetComponent<Door>();
+        audioSource = GameObject.Find("Player").GetComponent<AudioSource>();
         
     }
     void Update()
     {
         CheckInteraction();
-       if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
-       {
-         currentInteractable.Inteact();
-       }  
- 
+        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
+        {
+            currentInteractable.Inteact();
+        }
+        if (doorScript.open && !alreadyDisabled)
+        {
+            hasKeysScript.DisableKeyObject();
+            alreadyDisabled = true;
+            audioSource.PlayOneShot(audioKey);
+        
+        }
+      
     }
      void CheckInteraction()
     {
@@ -64,7 +78,8 @@ public class PlayerInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) && !hasKeysScript.hasKeys1)
                 {
                     hit.transform.GetComponent<DoorScript.Door>().OpenDoor();
-                 
+                    
+                
                 }
                 else if (hasKeysScript.hasKeys1)
                 {
