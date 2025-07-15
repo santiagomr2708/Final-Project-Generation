@@ -20,7 +20,7 @@ namespace Artemis
                 footstepsTimer -= Time.deltaTime;
                 if (footstepsTimer <= 0)
                 {
-                    SoundFXManager.instance.PlaySoundFXClip(footstepClip, transform, 1f);
+                    SoundFXManager.instance.PlaySoundFXClip(footstepClip, transform, 1f, false);
                     footstepsTimer = footsetpInterval;
                 }
             }

@@ -1,9 +1,24 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string gameSceneName = "NombreDeTuEscena";
+    [Header("Scene settings")]
+    [SerializeField] string gameSceneName = "NombreDeTuEscena";
+
+    [Header("Panels")]
+    [SerializeField] GameObject mainPanelButtons;
+    [SerializeField] GameObject panelSettings;
+
+    [Header("Selectable buttons")]
+    [SerializeField] GameObject masterButtom;
+    [SerializeField] GameObject settingsButtom;
+
+    void Start()
+    {
+        panelSettings.SetActive(false);
+    }
 
     public void StartGame()
     {
@@ -19,5 +34,20 @@ public class MainMenu : MonoBehaviour
             // Esto cierra el juego en la build
             Application.Quit();
 #endif
+    }
+
+    public void SettingsGame()
+    {
+        panelSettings.SetActive(!panelSettings.activeSelf);
+        mainPanelButtons.SetActive(!mainPanelButtons.activeSelf);
+
+        if (!panelSettings.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(settingsButtom);
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(masterButtom);
+        }
     }
 }
