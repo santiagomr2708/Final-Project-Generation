@@ -4,17 +4,17 @@ public class SoundFXManager : MonoBehaviour
 {
     public static SoundFXManager instance;
 
-    [SerializeField] AudioSource soundFXobject;
+    [SerializeField] AudioSource soundFXObject;
 
     void Awake()
     {
         if (instance == null) instance = this;
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, bool loop)
     {
         // Spawn in gameObject
-        AudioSource audioSource = Instantiate(soundFXobject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 
         // assing the audioClip
         audioSource.clip = audioClip;
@@ -22,14 +22,22 @@ public class SoundFXManager : MonoBehaviour
         // assing volume
         audioSource.volume = volume;
 
+        // assing looping
+        audioSource.loop = loop;
+
         // Play sound
         audioSource.Play();
 
-        // Get lenght of sound FX clip
-        float clipLength = audioSource.clip.length;
 
-        // Destroy the clip after it is done playing
-        Destroy(audioSource.gameObject, clipLength);
+        // If not looping, destroy after clip ends
+        if (!loop)
+        {
+            // Get lenght of sound FX clip
+            float clipLength = audioSource.clip.length;
+
+            // Destroy the clip after it is done playing
+            Destroy(audioSource.gameObject, clipLength);
+        }
     }
 
     public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, float volume)
@@ -38,7 +46,7 @@ public class SoundFXManager : MonoBehaviour
         int rand = Random.Range(0, audioClip.Length);
 
         // Spawn in gameObject
-        AudioSource audioSource = Instantiate(soundFXobject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 
         // assing the audioClip
         audioSource.clip = audioClip[rand];
