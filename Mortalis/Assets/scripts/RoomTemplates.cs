@@ -11,4 +11,11 @@ public class RoomTemplates : MonoBehaviour
 
     public GameObject closedRoom;
 
+    public GameObject salasContenedor;
+
+    void Start()
+    {
+        salasContenedor = new GameObject("SalasContenedor");
+    }
+
 }

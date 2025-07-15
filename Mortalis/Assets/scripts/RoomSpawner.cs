@@ -26,38 +26,44 @@ public class RoomSpawner : MonoBehaviour
     }
 
     void Spawn()
+   {
+    if (spawned == false)
     {
-        if (spawned==false)
+        GameObject sala = null;
+
+        if (openSide == 1)
         {
-            if(openSide==1)
-            {
-                //need bottom door
-                rand = Random.Range(0, templates.bottomRooms.Length);
-                Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-            }
-            else if(openSide==2)
-            {
-                //need top door
-                rand = Random.Range(0, templates.topRooms.Length);
-                Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
-            }
-            else if(openSide==3)
-            {
-                //need right door
-                rand = Random.Range(0, templates.rightRooms.Length);
-                Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
-            }
-            else if(openSide==4)
-            {          
-                //need left door
-                rand = Random.Range(0, templates.leftRooms.Length);
-                Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
-            }
-            spawned = true;
+            // need bottom door
+            rand = Random.Range(0, templates.bottomRooms.Length);
+            sala = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+        }
+        else if (openSide == 2)
+        {
+            // need top door
+            rand = Random.Range(0, templates.topRooms.Length);
+            sala = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
+        }
+        else if (openSide == 3)
+        {
+            // need right door
+            rand = Random.Range(0, templates.rightRooms.Length);
+            sala = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
+        }
+        else if (openSide == 4)
+        {
+            // need left door
+            rand = Random.Range(0, templates.leftRooms.Length);
+            sala = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
         }
 
-        
+        if (sala != null && templates.salasContenedor != null)
+        {
+            sala.transform.SetParent(templates.salasContenedor.transform);
+        }
+
+        spawned = true;
     }
+}
 
     private void OnTriggerEnter(Collider other)
 {
