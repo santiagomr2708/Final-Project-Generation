@@ -126,9 +126,15 @@ public class PlayerInteraction : MonoBehaviour
         hudControlller.instance.DisableInteractionText();
         if(currentInteractable)
         {
+            
             currentInteractable.DisableOutLine();
             currentInteractable = null;
+
+
         }
+      
+        
+        
     }
     
 }
