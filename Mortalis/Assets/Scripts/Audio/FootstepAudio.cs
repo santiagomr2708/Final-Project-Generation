@@ -6,7 +6,6 @@ namespace Artemis
     {
         [Header("Components")]
         [SerializeField] FirstPersonController fpController;
-        [SerializeField] AudioSource footstepsSource;
 
         [Header("Footstep Settings")]
         [SerializeField] AudioClip[] footstepClips;
@@ -36,7 +35,7 @@ namespace Artemis
             if (footstepClips.Length == 0) return;
 
             AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
-            footstepsSource.PlayOneShot(clip);
+            SoundFXManager.instance.PlaySoundFXClip(clip, transform, 1f);
         }
     }
 }
