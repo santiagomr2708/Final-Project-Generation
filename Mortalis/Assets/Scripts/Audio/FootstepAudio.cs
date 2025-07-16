@@ -6,10 +6,9 @@ namespace Artemis
     {
         [Header("Components")]
         [SerializeField] FirstPersonController fpController;
-        [SerializeField] AudioSource footstepsSource;
 
         [Header("Footstep Settings")]
-        [SerializeField] AudioClip[] footstepClips;
+        [SerializeField] AudioClip footstepClip;
         [SerializeField] float footsetpInterval = 0.5f;
 
         float footstepsTimer;
@@ -21,7 +20,7 @@ namespace Artemis
                 footstepsTimer -= Time.deltaTime;
                 if (footstepsTimer <= 0)
                 {
-                    PlayFootstep();
+                    SoundFXManager.instance.PlaySoundFXClip(footstepClip, transform, 1f, false);
                     footstepsTimer = footsetpInterval;
                 }
             }
@@ -29,14 +28,6 @@ namespace Artemis
             {
                 footstepsTimer = 0f;
             }
-        }
-
-        private void PlayFootstep()
-        {
-            if (footstepClips.Length == 0) return;
-
-            AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
-            footstepsSource.PlayOneShot(clip);
         }
     }
 }
