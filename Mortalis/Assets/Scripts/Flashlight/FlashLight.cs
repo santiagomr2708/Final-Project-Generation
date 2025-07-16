@@ -6,11 +6,6 @@ public class FlashLight : MonoBehaviour
 {
     public GameObject lightObject;
     public AudioClip lightSound;
-    private AudioSource audioSource;
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -24,6 +19,6 @@ public class FlashLight : MonoBehaviour
     void LightManager()
     {
         lightObject.SetActive(!lightObject.activeSelf);
-        audioSource.PlayOneShot(lightSound);
+        SoundFXManager.instance.PlaySoundFXClip(lightSound, transform, 1f, false);
     }
 }
