@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7996876956c9baf4f901b1f58467bb48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXobject: {fileID: 7408298738971062717, guid: cd15928a8513e87488dcd855c7478c5c, type: 3}
+  soundFXObject: {fileID: 7408298738971062717, guid: cd15928a8513e87488dcd855c7478c5c, type: 3}
 --- !u!4 &1888159292
 Transform:
   m_ObjectHideFlags: 0
