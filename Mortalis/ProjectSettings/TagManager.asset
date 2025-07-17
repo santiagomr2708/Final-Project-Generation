@@ -7,15 +7,18 @@ TagManager:
   - Interactable
   - Llaves
   - PickUp
+  - SpawPoint
+  - Rooms
+  - RoomsInitial
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerIndicator
   - Water
   - UI
-  - 
-  - 
+  - Eye
+  - Dont Show On Minimap
   - 
   - 
   - 
