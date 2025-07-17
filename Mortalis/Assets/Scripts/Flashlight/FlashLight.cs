@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,8 +11,9 @@ public class FlashLight : MonoBehaviour
     private AudioSource audioSource;
     public float EnergiaActual = 100;
     public float EnergiaMaxima = 100;
-    public float consumeSpeed = 1;
+    public float consumeSpeed = 10;
     public Image barraBateria;
+    private bool energiaExtraPendiente = false;
 
     void Start()
     {
@@ -36,20 +38,35 @@ public class FlashLight : MonoBehaviour
                 lightObject.SetActive(false);
             }
         }
-        else if (!lightObject.activeSelf)
+        else if (!lightObject.activeSelf && !energiaExtraPendiente)
         {
-            EnergiaActual += Time.deltaTime * consumeSpeed;
+            EnergiaActual += Time.deltaTime;
             if (EnergiaActual > EnergiaMaxima)
             {
                 EnergiaActual = EnergiaMaxima;
 
             }
         }
-        barraBateria.fillAmount = EnergiaActual/EnergiaMaxima;
+        barraBateria.fillAmount = EnergiaActual / EnergiaMaxima;
     }
     void LightManager()
     {
-        lightObject.SetActive(!lightObject.activeSelf && EnergiaActual > 50);
-        audioSource.PlayOneShot(lightSound);
+        lightObject.SetActive(!lightObject.activeSelf && EnergiaActual > 20);
+        SoundFXManager.instance.PlaySoundFXClip(lightSound, transform, 1f, false);
     }
+  public void AgregarEnergia(float cantidad)
+  {
+    energiaExtraPendiente = true;
+    EnergiaActual = Mathf.Min(EnergiaActual + cantidad, EnergiaMaxima);
+    
+    StartCoroutine(DesbloquearRegeneracion());
+  }
+
+private IEnumerator DesbloquearRegeneracion()
+{
+    
+    yield return new WaitForEndOfFrame();
+    energiaExtraPendiente = false;
 }
+}
+
