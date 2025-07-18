@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4259d69162c5f934cb8c7cbb80797d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneName: Juanda
+  gameSceneName: Habitacion inicial
   mainPanelButtons: {fileID: 1156324895}
   panelSettings: {fileID: 1994366137}
   masterButtom: {fileID: 1448942970}

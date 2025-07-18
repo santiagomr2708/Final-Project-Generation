@@ -8,17 +8,11 @@ public class FlashLight : MonoBehaviour
 {
     public GameObject lightObject;
     public AudioClip lightSound;
-    private AudioSource audioSource;
     public float EnergiaActual = 100;
     public float EnergiaMaxima = 100;
     public float consumeSpeed = 10;
     public Image barraBateria;
     private bool energiaExtraPendiente = false;
-
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
 
     // Update is called once per frame
     void Update()

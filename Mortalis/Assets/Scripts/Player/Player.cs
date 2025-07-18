@@ -8,6 +8,7 @@ namespace Artemis
     {
         [Header("Components")]
         [SerializeField] FirstPersonController FPController;
+        [SerializeField] PauseMenu pauseMenu;
 
         #region Input Handling
 
@@ -18,7 +19,13 @@ namespace Artemis
 
         void OnLook(InputValue value)
         {
+            if (pauseMenu.isPaused) return;
             FPController.lookInput = value.Get<Vector2>();
+        }
+
+        void OnPause()
+        {
+            pauseMenu.TogglePause();
         }
 
         #endregion
