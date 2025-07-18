@@ -9,6 +9,7 @@ public class SleepFade : MonoBehaviour
     private bool sleeping = false;
     private bool sceneLoading = false;
     Tasks1scene tasks1Scene;
+    [SerializeField] string sceneToLoad;
     void Start()
     {
         tasks1Scene = GameObject.Find("GameManager").GetComponent<Tasks1scene>();
@@ -24,7 +25,7 @@ public class SleepFade : MonoBehaviour
             if (newAlpha >= 1f && !sceneLoading)
             {
                 sceneLoading = true;
-                SceneManager.LoadScene("Nicolas 1");
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
         

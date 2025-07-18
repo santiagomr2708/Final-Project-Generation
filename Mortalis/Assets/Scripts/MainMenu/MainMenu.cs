@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [Header("Scene settings")]
-    [SerializeField] string gameSceneName = "NombreDeTuEscena";
+    [SerializeField] string gameSceneName;
 
     [Header("Panels")]
     [SerializeField] GameObject mainPanelButtons;
