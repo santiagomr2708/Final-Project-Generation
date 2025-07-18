@@ -40,7 +40,7 @@ public class FlashLight : MonoBehaviour
         }
         else if (!lightObject.activeSelf && !energiaExtraPendiente)
         {
-            EnergiaActual += Time.deltaTime;
+            EnergiaActual += Time.deltaTime * 2;
             if (EnergiaActual > EnergiaMaxima)
             {
                 EnergiaActual = EnergiaMaxima;
