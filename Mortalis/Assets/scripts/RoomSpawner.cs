@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
 {
-    
+
     public int openSide;
 
     //1 need bottom door
@@ -26,46 +26,72 @@ public class RoomSpawner : MonoBehaviour
     }
 
     void Spawn()
-   {
-    if (spawned == false)
     {
-        GameObject sala = null;
+        if (spawned == false)
+        {
+            GameObject sala = null;
 
-        if (openSide == 1)
-        {
-            // need bottom door
-            rand = Random.Range(0, templates.bottomRooms.Length);
-            sala = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-        }
-        else if (openSide == 2)
-        {
-            // need top door
-            rand = Random.Range(0, templates.topRooms.Length);
-            sala = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
-        }
-        else if (openSide == 3)
-        {
-            // need right door
-            rand = Random.Range(0, templates.rightRooms.Length);
-            sala = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
-        }
-        else if (openSide == 4)
-        {
-            // need left door
-            rand = Random.Range(0, templates.leftRooms.Length);
-            sala = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
-        }
+            if (!templates.firstRoom)
+            {
+                int index = Random.Range(0, templates.allRooms.Length);
+                sala = Instantiate(templates.allRooms[index], transform.position, Quaternion.identity);
+                templates.firstRoom = true;
+            }
+            else if (!templates.bossRoomSpawned && Random.value < 0.1f)
+            {
+                switch (openSide)
+                {
+                    case 1:
+                        sala = Instantiate(templates.bossRoomBottom, transform.position, Quaternion.identity);
+                        break;
+                    case 2:
+                        sala = Instantiate(templates.bossRoomTop, transform.position, Quaternion.identity);
+                        break;
+                    case 3:
+                        sala = Instantiate(templates.bossRoomLeft, transform.position, Quaternion.identity);
+                        break;
+                    case 4:
+                        sala = Instantiate(templates.bossRoomRight, transform.position, Quaternion.identity);
+                        break;
+                }
 
-        if (sala != null && templates.salasContenedor != null)
-        {
-            sala.transform.SetParent(templates.salasContenedor.transform);
-        }
+                templates.bossRoomSpawned = true;
+            }
+            else
+            {
+                // Resto de salas normales
+                if (openSide == 1)
+                {
+                    rand = Random.Range(0, templates.bottomRooms.Length);
+                    sala = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
+                }
+                else if (openSide == 2)
+                {
+                    rand = Random.Range(0, templates.topRooms.Length);
+                    sala = Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
+                }
+                else if (openSide == 3)
+                {
+                    rand = Random.Range(0, templates.rightRooms.Length);
+                    sala = Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
+                }
+                else if (openSide == 4)
+                {
+                    rand = Random.Range(0, templates.leftRooms.Length);
+                    sala = Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
+                }
+            }
 
-        spawned = true;
+            if (sala != null && templates.salasContenedor != null)
+            {
+                sala.transform.SetParent(templates.salasContenedor.transform);
+            }
+
+            spawned = true;
+        }
     }
-}
 
-    private void OnTriggerEnter(Collider other)
+     private void OnTriggerEnter(Collider other)
 {
     if (other.CompareTag("SpawPoint"))
     {
@@ -80,3 +106,4 @@ public class RoomSpawner : MonoBehaviour
 }
    
 }
+

@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
+    [HideInInspector]
+    public bool firstRoom = false;
+
+    public GameObject bossRoomBottom;
+    public GameObject bossRoomTop;
+    public GameObject bossRoomLeft;
+    public GameObject bossRoomRight;
+
+    [HideInInspector]
+    public bool bossRoomSpawned = false;
+
+    public GameObject[] allRooms;
+
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
     public GameObject[] leftRooms;

@@ -120,6 +120,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e0f7eca60a83a45bb94c819b27119d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstRoom: 0
+  bossRoomBottom: {fileID: 6248040896272027380, guid: 8eb4d6532153bc846a1c2ea014af08bb, type: 3}
+  bossRoomTop: {fileID: 575300644676663347, guid: 313016f80161d7e44821e3ef7e611536, type: 3}
+  bossRoomLeft: {fileID: 5190967270946688468, guid: bfe03bb8a0dc10b4ea43a38621662101, type: 3}
+  bossRoomRight: {fileID: 7317117301167462787, guid: 58eb0f1fcb4500c41a2b76e33825d29c, type: 3}
+  bossRoomSpawned: 0
+  allRooms:
+  - {fileID: 7092370616761193092, guid: 10a212c0e15502047a4ea92119798111, type: 3}
   bottomRooms:
   - {fileID: 6248040896272027380, guid: cd31e25420d67ca41969401480f817ad, type: 3}
   - {fileID: 69254407638815177, guid: df33c7cc0b4cafa4d91d24e079633a3c, type: 3}
