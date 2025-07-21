@@ -848,7 +848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3415137937416423157, guid: 160ae18625c0ccc4fa1688e2b4df3d93, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 39.743
+      value: 157.743
       objectReference: {fileID: 0}
     - target: {fileID: 3415137937416423157, guid: 160ae18625c0ccc4fa1688e2b4df3d93, type: 3}
       propertyPath: m_LocalRotation.w
@@ -929,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257037172757102, guid: 4f35ed07cfc03694dba2d49a4fc91c11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.514
+      value: 163.514
       objectReference: {fileID: 0}
     - target: {fileID: 4257037172757102, guid: 4f35ed07cfc03694dba2d49a4fc91c11, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1027,7 +1027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2710510122707424704, guid: c52451a6fc68e384e85167fe847151d1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 43.013
+      value: 161.013
       objectReference: {fileID: 0}
     - target: {fileID: 2710510122707424704, guid: c52451a6fc68e384e85167fe847151d1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1118,6 +1118,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7414540355366985193, guid: ce934c8ba8a2e8241af37c5e8c1a6c7e, type: 3}
+      propertyPath: numeroMaximoSalas
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1157,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6341202534457076166, guid: d49d5e78aa664cb42aaa257bd785ae1f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.71626
+      value: 155.71626
       objectReference: {fileID: 0}
     - target: {fileID: 6341202534457076166, guid: d49d5e78aa664cb42aaa257bd785ae1f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1482,7 +1486,7 @@ Transform:
   m_GameObject: {fileID: 1821225006}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.23, y: 3.7, z: 39.743}
+  m_LocalPosition: {x: 77.23, y: 3.7, z: 157.743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42184,26 +42188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: f20d0cebc9e7f9a4f97f2e58c4fbc1d9, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!33 &5561634101287460414
 MeshFilter:
   m_ObjectHideFlags: 0
