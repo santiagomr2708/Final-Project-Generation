@@ -11,7 +11,8 @@ public class FlashLight : MonoBehaviour
     private AudioSource audioSource;
     public float EnergiaActual = 100;
     public float EnergiaMaxima = 100;
-    public float consumeSpeed = 10;
+    public float consumeSpeed ;
+    public float rechargeSpeed;
     public Image barraBateria;
     private bool energiaExtraPendiente = false;
 
@@ -40,11 +41,10 @@ public class FlashLight : MonoBehaviour
         }
         else if (!lightObject.activeSelf && !energiaExtraPendiente)
         {
-            EnergiaActual += Time.deltaTime * 2;
+            EnergiaActual += Time.deltaTime * rechargeSpeed;
             if (EnergiaActual > EnergiaMaxima)
             {
                 EnergiaActual = EnergiaMaxima;
-
             }
         }
         barraBateria.fillAmount = EnergiaActual / EnergiaMaxima;
