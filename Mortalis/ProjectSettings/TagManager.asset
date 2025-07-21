@@ -10,6 +10,7 @@ TagManager:
   - SpawPoint
   - Rooms
   - RoomsInitial
+  - Enemy
   layers:
   - Default
   - TransparentFX
