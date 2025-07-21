@@ -10,10 +10,12 @@ public class SleepFade : MonoBehaviour
     private bool sceneLoading = false;
     Tasks1scene tasks1Scene;
     [SerializeField] string sceneToLoad;
+
     void Start()
     {
         tasks1Scene = GameObject.Find("GameManager").GetComponent<Tasks1scene>();
     }
+
     void Update()
     {
         if (sleeping && fadeImage != null)
@@ -28,7 +30,6 @@ public class SleepFade : MonoBehaviour
                 SceneManager.LoadScene(sceneToLoad);
             }
         }
-        
     }
 
     public void GoingToSleep()
@@ -36,7 +37,6 @@ public class SleepFade : MonoBehaviour
         if (tasks1Scene.lucesApagadas)
         {
             sleeping = true;
-
         }
     }
 }

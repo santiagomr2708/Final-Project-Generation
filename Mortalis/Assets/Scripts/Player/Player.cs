@@ -9,6 +9,7 @@ namespace Artemis
         [Header("Components")]
         [SerializeField] FirstPersonController FPController;
         [SerializeField] PauseMenu pauseMenu;
+        [SerializeField] FlashLight flashLight;
 
         #region Input Handling
 
@@ -21,6 +22,11 @@ namespace Artemis
         {
             if (pauseMenu.isPaused) return;
             FPController.lookInput = value.Get<Vector2>();
+        }
+
+        void OnFlashlight()
+        {
+            flashLight.LightManager();
         }
 
         void OnPause()
