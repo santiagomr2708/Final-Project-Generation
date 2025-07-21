@@ -37,6 +37,8 @@ public class RoomTemplates : MonoBehaviour
     [HideInInspector]
     public int salasGeneradas = 0;
 
+    public HashSet<Vector3Int> posicionesOcupadas = new HashSet<Vector3Int>();
+
     void Start()
     {
         salasContenedor = new GameObject("SalasContenedor");
