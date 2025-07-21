@@ -16,6 +16,9 @@ namespace Artemis
         private DatosDejuego datosDejuego;
         private DataManager dataManager;
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
         #region Input Handling
