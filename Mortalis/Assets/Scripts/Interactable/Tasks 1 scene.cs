@@ -4,6 +4,7 @@ public class Tasks1scene : MonoBehaviour
 {
     public bool lucesApagadas = false;
     public int cantidadLuces;
+ 
   
     void Update()
     {
@@ -11,5 +12,6 @@ public class Tasks1scene : MonoBehaviour
         {
             lucesApagadas = true;
         }
+    
     }
 }
