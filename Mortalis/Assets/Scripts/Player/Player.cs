@@ -16,7 +16,6 @@ namespace Artemis
         private DataManager dataManager;
 
 
-
         #region Input Handling
 
         void OnMove(InputValue value)
