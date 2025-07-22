@@ -4,58 +4,46 @@ using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
 {
-
     public int openSide;
 
-    //1 need bottom door
-    //2 need top door
-    //3 need left door
-    //4 need right door
-
     private RoomTemplates templates;
-
     private int rand;
-
     private bool spawned = false;
 
     void Start()
-{
-    templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-    
-    Vector3Int posicionGrid = Vector3Int.RoundToInt(transform.position);
-    
-    if (!templates.posicionesOcupadas.Contains(posicionGrid))
     {
+        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+
+        Vector3Int posicionGrid = Vector3Int.RoundToInt(transform.position);
+
+        if (templates.posicionesOcupadas.Contains(posicionGrid))
+        {
+            spawned = true;
+            Destroy(gameObject);
+            return;
+        }
+
         templates.posicionesOcupadas.Add(posicionGrid);
-    }
-    else
-    {
-        spawned = true;
-        Destroy(gameObject);
-        return;
+
+        Invoke("Spawn", 0.5f);
+        Destroy(gameObject, 4f);
     }
 
-    Invoke("Spawn", 0.2f);
-    Destroy(gameObject, 4f);
-}
-
-   void Spawn()
+    void Spawn()
     {
         if (spawned) return;
 
-        Vector3Int posicionGrid = Vector3Int.RoundToInt(transform.position);
-     
-        templates.posicionesOcupadas.Add(posicionGrid);
-
         GameObject sala = null;
 
-        if (!templates.firstRoom)
+        /// la primera sala, despues de la sala inicial claro
+        if (!templates.salaConectadaGenerada)
         {
             int index = Random.Range(0, templates.allRooms.Length);
             sala = Instantiate(templates.allRooms[index], transform.position, Quaternion.identity);
-            templates.firstRoom = true;
+            templates.salaConectadaGenerada = true;
         }
-        else if (!templates.bossRoomSpawned && templates.salasGeneradas == templates.numeroMaximoSalas - 1)
+        /// generaciuon de slaa de enemigo (no pregunten por que dice boss, lo comence asi y asi quedo)
+        else if (!templates.bossRoomSpawned && templates.salasGeneradas >= templates.numeroMaximoSalas - 1)
         {
             switch (openSide)
             {
@@ -75,6 +63,7 @@ public class RoomSpawner : MonoBehaviour
 
             templates.bossRoomSpawned = true;
         }
+        /// generacion de las demas salas
         else if (templates.salasGeneradas < templates.numeroMaximoSalas)
         {
             switch (openSide)
@@ -97,6 +86,7 @@ public class RoomSpawner : MonoBehaviour
                     break;
             }
         }
+        /// cerrar las habitacione que quedaron abiertas.
         else
         {
             switch (openSide)
@@ -128,24 +118,4 @@ public class RoomSpawner : MonoBehaviour
 
         spawned = true;
     }
-
-
-    private void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag("SpawPoint"))
-    {
-        RoomSpawner otherSpawner = other.GetComponent<RoomSpawner>();
-        Vector3Int posicionGrid = Vector3Int.RoundToInt(transform.position);
-        
-        if (otherSpawner != null && !otherSpawner.spawned && !spawned && !templates.posicionesOcupadas.Contains(posicionGrid))
-            {
-                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-            }
-
-        spawned = true;
-        Destroy(gameObject);
-    }
 }
-
-}
-

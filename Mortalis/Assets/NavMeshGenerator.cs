@@ -19,6 +19,8 @@ public class NavMeshGenerator : MonoBehaviour
         {
             NavMeshSurface surface = templates.salasContenedor.AddComponent<NavMeshSurface>();
             surface.collectObjects = CollectObjects.Children;
+
+            
             surface.BuildNavMesh();
         }
     }
