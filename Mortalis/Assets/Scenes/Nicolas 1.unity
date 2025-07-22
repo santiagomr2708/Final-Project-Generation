@@ -2059,7 +2059,7 @@ Transform:
   m_GameObject: {fileID: 789474231}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.31, y: 2.401, z: 0.04}
+  m_LocalPosition: {x: -28.31, y: 3.22, z: 0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3819,6 +3819,10 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1803948387}
+    - target: {fileID: 5028823429832584028, guid: 160ae18625c0ccc4fa1688e2b4df3d93, type: 3}
+      propertyPath: flashLight
+      value: 
+      objectReference: {fileID: 1611454862}
     - target: {fileID: 6069778342206761324, guid: 160ae18625c0ccc4fa1688e2b4df3d93, type: 3}
       propertyPath: cameraMain
       value: 
@@ -4374,6 +4378,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561235530}
   m_CullTransparentMesh: 1
+--- !u!114 &1611454862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6110214758915932992, guid: 160ae18625c0ccc4fa1688e2b4df3d93, type: 3}
+  m_PrefabInstance: {fileID: 1338775170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d076a226dcd7f14f9067e7eaf93cfbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1614159629
 GameObject:
   m_ObjectHideFlags: 0
