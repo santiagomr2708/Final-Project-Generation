@@ -61,7 +61,8 @@ namespace Artemis
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                datosDejuego.cantidadVidas--;
+                
+              cantidadVidas--;
                 dataManager.GuardarDatos();
             }
         }
