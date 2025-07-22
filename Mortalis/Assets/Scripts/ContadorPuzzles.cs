@@ -33,6 +33,8 @@ public class ContadorPuzzles : MonoBehaviour
         if (puzzlesCompletados >= totalPuzzles && totalPuzzles > 0)
         {
             SceneManager.LoadScene("");
+            ///falta la escena, no estaba cuando hice la combinazao xd
+            /// cuando gana pues la escena y shap
         }
     }
 }

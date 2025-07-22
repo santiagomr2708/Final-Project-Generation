@@ -19,24 +19,31 @@ public class RoomSpawner : MonoBehaviour
     private bool spawned = false;
 
     void Start()
+{
+    templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
+    
+    Vector3Int posicionGrid = Vector3Int.RoundToInt(transform.position);
+    
+    if (!templates.posicionesOcupadas.Contains(posicionGrid))
     {
-        templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.2f);
-        Destroy(gameObject, 4f);
+        templates.posicionesOcupadas.Add(posicionGrid);
     }
+    else
+    {
+        spawned = true;
+        Destroy(gameObject);
+        return;
+    }
+
+    Invoke("Spawn", 0.2f);
+    Destroy(gameObject, 4f);
+}
 
    void Spawn()
     {
         if (spawned) return;
 
         Vector3Int posicionGrid = Vector3Int.RoundToInt(transform.position);
-
-        if (templates.posicionesOcupadas.Contains(posicionGrid))
-        {
-            spawned = true;
-            Destroy(gameObject);
-            return;
-        }
      
         templates.posicionesOcupadas.Add(posicionGrid);
 
@@ -124,18 +131,21 @@ public class RoomSpawner : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("SpawPoint"))
     {
-        if (other.CompareTag("SpawPoint"))
-        {
-            RoomSpawner otherSpawner = other.GetComponent<RoomSpawner>();
-            if (otherSpawner != null && !otherSpawner.spawned && !spawned)
+        RoomSpawner otherSpawner = other.GetComponent<RoomSpawner>();
+        Vector3Int posicionGrid = Vector3Int.RoundToInt(transform.position);
+        
+        if (otherSpawner != null && !otherSpawner.spawned && !spawned && !templates.posicionesOcupadas.Contains(posicionGrid))
             {
                 Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-                Destroy(gameObject);
             }
-            spawned = true;
-        }
+
+        spawned = true;
+        Destroy(gameObject);
     }
+}
 
 }
 
