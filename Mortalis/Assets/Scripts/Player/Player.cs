@@ -28,6 +28,16 @@ namespace Artemis
             FPController.lookInput = value.Get<Vector2>();
         }
 
+        void OnFlashlight()
+        {
+            flashLight.LightManager();
+        }
+
+        void OnPause()
+        {
+            pauseMenu.TogglePause();
+        }
+
         #endregion
 
         #region Unity Methods
