@@ -9,14 +9,15 @@ public class BedSleep : MonoBehaviour
     bool sleeping = false;
     Vector3 targetPosition = new Vector3(-2.168f, 1.5f, 0.887f);
     Tasks1scene tasks1Scene;
+
     void Start()
     {
         player = GameObject.Find("Player");
         firstPersonController = player.GetComponent<FirstPersonController>();
         tasks1Scene = GameObject.Find("GameManager").GetComponent<Tasks1scene>();
-        
-        
+        sleeping = false;
     }
+
     void Update()
     {
         if (sleeping)
@@ -33,20 +34,15 @@ public class BedSleep : MonoBehaviour
             {
                 player.transform.position = targetPosition;
             }
-	
-            
-		}
+        }
     }
+    
     public void GoingToSleep()
     {
         if (tasks1Scene.lucesApagadas)
         {
             sleeping = true;
-
         }
-        
-
-
     }
 
 }

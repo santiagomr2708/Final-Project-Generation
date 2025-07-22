@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Nicolas 1");
+        SceneManager.LoadScene(gameSceneName);
     }
 
     public void QuitGame()
