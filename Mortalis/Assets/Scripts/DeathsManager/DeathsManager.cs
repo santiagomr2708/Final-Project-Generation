@@ -23,28 +23,25 @@ public class DeathsManager : MonoBehaviour
     }
     void Update()
     {
-        if (player.cantidadVidas == 3)
+        if (datosDejuego.cantidadVidas == 3)
         {
             miniMap.SetActive(false);
             firstPersonController.maxSpeed = 15;
             flashLight.consumeSpeed = 10;
             flashLight.rechargeSpeed = 2;
-            firstPersonController.acceleration = 5;
 
 
         }
-        else if (player.cantidadVidas == 2)
+        else if (datosDejuego.cantidadVidas == 2)
         {
             miniMap.SetActive(false);
             firstPersonController.maxSpeed = 10;
             flashLight.consumeSpeed = 8;
             flashLight.rechargeSpeed = 5;
             corazones[0].SetActive(false);
-            firstPersonController.acceleration = 10;
-
 
         }
-        else if (player.cantidadVidas == 1)
+        else if (datosDejuego.cantidadVidas == 1)
         {
             miniMap.SetActive(true);
             firstPersonController.maxSpeed = 5;
@@ -52,10 +49,9 @@ public class DeathsManager : MonoBehaviour
             flashLight.rechargeSpeed = 10;
             corazones[1].SetActive(false);
             corazones[0].SetActive(false);
-            firstPersonController.acceleration = 15;
 
         }
-        else if (player.cantidadVidas == 0)
+        else if (datosDejuego.cantidadVidas == 0)
         {
             endGame.SetActive(true);
         }
