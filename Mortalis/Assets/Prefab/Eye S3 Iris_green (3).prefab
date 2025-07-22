@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7840253628077324363}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Eye S3 Iris_green (3)
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8255417849927989653}
   - component: {fileID: 7938767138548861367}
   - component: {fileID: 6107762842756011565}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Iris
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 9025003955326402908}
   - component: {fileID: 1580065409027240414}
   - component: {fileID: 3873442842254356347}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sclera
   m_TagString: Interactable
   m_Icon: {fileID: 0}

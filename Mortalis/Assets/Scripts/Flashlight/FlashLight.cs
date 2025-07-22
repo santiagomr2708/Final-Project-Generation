@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,10 +10,13 @@ public class FlashLight : MonoBehaviour
     private AudioSource audioSource;
     public float EnergiaActual = 100;
     public float EnergiaMaxima = 100;
+<<<<<<< HEAD
     public float consumeSpeed ;
     public float rechargeSpeed;
+=======
+    public float consumeSpeed = 1;
+>>>>>>> parent of b0077b6 (MiniMapa Funcional, Arreglos,Audios calavera, Puzzle de ojos)
     public Image barraBateria;
-    private bool energiaExtraPendiente = false;
 
     void Start()
     {
@@ -39,34 +41,23 @@ public class FlashLight : MonoBehaviour
                 lightObject.SetActive(false);
             }
         }
-        else if (!lightObject.activeSelf && !energiaExtraPendiente)
+        else if (!lightObject.activeSelf)
         {
+<<<<<<< HEAD
             EnergiaActual += Time.deltaTime * rechargeSpeed;
+=======
+            EnergiaActual += Time.deltaTime * consumeSpeed;
+>>>>>>> parent of b0077b6 (MiniMapa Funcional, Arreglos,Audios calavera, Puzzle de ojos)
             if (EnergiaActual > EnergiaMaxima)
             {
                 EnergiaActual = EnergiaMaxima;
             }
         }
-        barraBateria.fillAmount = EnergiaActual / EnergiaMaxima;
+        barraBateria.fillAmount = EnergiaActual/EnergiaMaxima;
     }
     void LightManager()
     {
-        lightObject.SetActive(!lightObject.activeSelf && EnergiaActual > 20);
-        SoundFXManager.instance.PlaySoundFXClip(lightSound, transform, 1f, false);
+        lightObject.SetActive(!lightObject.activeSelf && EnergiaActual > 50);
+        audioSource.PlayOneShot(lightSound);
     }
-  public void AgregarEnergia(float cantidad)
-  {
-    energiaExtraPendiente = true;
-    EnergiaActual = Mathf.Min(EnergiaActual + cantidad, EnergiaMaxima);
-    
-    StartCoroutine(DesbloquearRegeneracion());
-  }
-
-private IEnumerator DesbloquearRegeneracion()
-{
-    
-    yield return new WaitForEndOfFrame();
-    energiaExtraPendiente = false;
 }
-}
-

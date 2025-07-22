@@ -7,19 +7,22 @@ TagManager:
   - Interactable
   - Llaves
   - PickUp
+<<<<<<< HEAD
   - SpawPoint
   - Rooms
   - RoomsInitial
   - Enemy
+=======
+>>>>>>> parent of b0077b6 (MiniMapa Funcional, Arreglos,Audios calavera, Puzzle de ojos)
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - PlayerIndicator
+  - 
   - Water
   - UI
-  - Eye
-  - Dont Show On Minimap
+  - 
+  - 
   - 
   - 
   - 

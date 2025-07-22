@@ -2,22 +2,16 @@ using UnityEngine;
 
 public class PuzzleEyeManager : MonoBehaviour
 {
-    private FlashLight flashLight;
-    private EyeSpawner eyeSpawner;
-    public int eyeCount;
+    public float eyeCount;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        eyeSpawner = GameObject.Find("Eye Spawner").GetComponent<EyeSpawner>();
-        flashLight = GameObject.Find("FlashLight").GetComponent<FlashLight>();
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if (eyeSpawner.cantidadRealOjos == eyeCount )
-        {
-            flashLight.AgregarEnergia(20f);
-
-                    
-        }
+        
     }
 }
