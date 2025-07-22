@@ -8,15 +8,13 @@ namespace Artemis
     {
         [Header("Components")]
         [SerializeField] FirstPersonController FPController;
-<<<<<<< Updated upstream
-=======
+
         [SerializeField] PauseMenu pauseMenu;
         [SerializeField] FlashLight flashLight;
         [SerializeField] public int cantidadVidas = 3;
         private DatosDejuego datosDejuego;
         private DataManager dataManager;
 
->>>>>>> Stashed changes
 
         #region Input Handling
 
