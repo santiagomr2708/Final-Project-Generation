@@ -12,6 +12,5 @@ public class Tasks1scene : MonoBehaviour
         {
             lucesApagadas = true;
         }
-    
     }
 }

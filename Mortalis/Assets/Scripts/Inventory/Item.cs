@@ -21,6 +21,5 @@ public class Item : MonoBehaviour
     {
         inventoryManager.AddItem(itemName, cantidad, sprite);
         Destroy(gameObject);
-        
     }
 }

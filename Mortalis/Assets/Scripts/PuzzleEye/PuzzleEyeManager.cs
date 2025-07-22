@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PuzzleEyeManager : MonoBehaviour
 {
     private FlashLight flashLight;
     private EyeSpawner eyeSpawner;
     public int eyeCount;
+    [SerializeField] string sceneName;
+
     void Start()
     {
         eyeSpawner = GameObject.Find("Eye Spawner").GetComponent<EyeSpawner>();
@@ -15,9 +18,7 @@ public class PuzzleEyeManager : MonoBehaviour
     {
         if (eyeSpawner.cantidadRealOjos == eyeCount )
         {
-            flashLight.AgregarEnergia(20f);
-
-                    
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

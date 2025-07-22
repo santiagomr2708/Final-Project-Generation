@@ -36,7 +36,6 @@ public class SleepFade : MonoBehaviour
         if (tasks1Scene.lucesApagadas)
         {
             sleeping = true;
-
         }
     }
 }
