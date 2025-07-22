@@ -29,9 +29,6 @@ public class DeathsManager : MonoBehaviour
             firstPersonController.maxSpeed = 15;
             flashLight.consumeSpeed = 10;
             flashLight.rechargeSpeed = 2;
-            firstPersonController.acceleration = 5;
-
-
         }
         else if (player.cantidadVidas == 2)
         {
@@ -40,9 +37,6 @@ public class DeathsManager : MonoBehaviour
             flashLight.consumeSpeed = 8;
             flashLight.rechargeSpeed = 5;
             corazones[0].SetActive(false);
-            firstPersonController.acceleration = 10;
-
-
         }
         else if (player.cantidadVidas == 1)
         {
@@ -52,8 +46,6 @@ public class DeathsManager : MonoBehaviour
             flashLight.rechargeSpeed = 10;
             corazones[1].SetActive(false);
             corazones[0].SetActive(false);
-            firstPersonController.acceleration = 15;
-
         }
         else if (player.cantidadVidas == 0)
         {
