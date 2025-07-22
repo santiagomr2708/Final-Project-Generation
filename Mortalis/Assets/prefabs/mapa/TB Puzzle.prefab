@@ -35,7 +35,6 @@ Transform:
   - {fileID: 4626653042726864519}
   - {fileID: 7796465349605507022}
   - {fileID: 5167017465037618089}
-  - {fileID: 5400526659330785580}
   - {fileID: 8575968027508717507}
   - {fileID: 9134276086647669398}
   - {fileID: 4372978319425474636}
@@ -332,51 +331,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.12776752, y: 12.446221, z: 11.649325}
   m_Center: {x: -0.3174498, y: -1.4279121, z: -1.2277713}
---- !u!1 &1086592264747235055
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5400526659330785580}
-  - component: {fileID: 960256688196272361}
-  m_Layer: 0
-  m_Name: Puzzle Eye Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5400526659330785580
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086592264747235055}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.22, y: 0.78, z: 0.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8736244905465812772}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &960256688196272361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086592264747235055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0a6ea6e04e208544a8694dfdbf65c8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eyeCount: 0
 --- !u!1 &2150358562403834996
 GameObject:
   m_ObjectHideFlags: 0

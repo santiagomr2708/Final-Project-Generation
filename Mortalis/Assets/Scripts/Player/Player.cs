@@ -24,6 +24,7 @@ namespace Artemis
 
         void OnLook(InputValue value)
         {
+            if (pauseMenu.isPaused) return;
             FPController.lookInput = value.Get<Vector2>();
         }
 
