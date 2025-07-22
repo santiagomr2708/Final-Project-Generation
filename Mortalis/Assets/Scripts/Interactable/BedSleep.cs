@@ -9,7 +9,6 @@ public class BedSleep : MonoBehaviour
     bool sleeping = false;
     Vector3 targetPosition = new Vector3(-2.168f, 1.5f, 0.887f);
     Tasks1scene tasks1Scene;
-    
     void Start()
     {
         player = GameObject.Find("Player");
@@ -18,7 +17,6 @@ public class BedSleep : MonoBehaviour
         
         
     }
-
     void Update()
     {
         if (sleeping)
@@ -34,10 +32,11 @@ public class BedSleep : MonoBehaviour
             if (Vector3.Distance(player.transform.position, targetPosition) < 0.01f)
             {
                 player.transform.position = targetPosition;
-            }        
+            }
+	
+            
 		}
     }
-
     public void GoingToSleep()
     {
         if (tasks1Scene.lucesApagadas)
@@ -45,6 +44,9 @@ public class BedSleep : MonoBehaviour
             sleeping = true;
 
         }
+        
+
+
     }
 
 }

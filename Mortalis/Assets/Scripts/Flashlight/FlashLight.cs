@@ -14,8 +14,15 @@ public class FlashLight : MonoBehaviour
     public Image barraBateria;
     private bool energiaExtraPendiente = false;
 
+    // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            LightManager();
+
+        }
+
         if (lightObject.activeSelf)
         {
             EnergiaActual -= Time.deltaTime * consumeSpeed;
@@ -36,26 +43,24 @@ public class FlashLight : MonoBehaviour
         }
         barraBateria.fillAmount = EnergiaActual / EnergiaMaxima;
     }
-
-    public void LightManager()
+    void LightManager()
     {
         lightObject.SetActive(!lightObject.activeSelf && EnergiaActual > 20);
         SoundFXManager.instance.PlaySoundFXClip(lightSound, transform, 1f, false);
     }
+  public void AgregarEnergia(float cantidad)
+  {
+    energiaExtraPendiente = true;
+    EnergiaActual = Mathf.Min(EnergiaActual + cantidad, EnergiaMaxima);
+    
+    StartCoroutine(DesbloquearRegeneracion());
+  }
 
-    public void AgregarEnergia(float cantidad)
-    {
-        energiaExtraPendiente = true;
-        EnergiaActual = Mathf.Min(EnergiaActual + cantidad, EnergiaMaxima);
-
-        StartCoroutine(DesbloquearRegeneracion());
-    }
-
-    private IEnumerator DesbloquearRegeneracion()
-    {
-
-        yield return new WaitForEndOfFrame();
-        energiaExtraPendiente = false;
-    }
+private IEnumerator DesbloquearRegeneracion()
+{
+    
+    yield return new WaitForEndOfFrame();
+    energiaExtraPendiente = false;
+}
 }
 
