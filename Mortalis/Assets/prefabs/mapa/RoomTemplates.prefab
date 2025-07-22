@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794554967658598826}
   - component: {fileID: 5098721243850577981}
+  - component: {fileID: 7863611998498917099}
   m_Layer: 0
   m_Name: contenedor
   m_TagString: Untagged
@@ -45,6 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   templates: {fileID: 7414540355366985193}
+--- !u!114 &7863611998498917099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019774016834730046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e000a5654a795745b1972e21e6f3b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4947715258652242693
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,14 +109,6 @@ MonoBehaviour:
   bossRoomLeft: {fileID: 5190967270946688468, guid: bfe03bb8a0dc10b4ea43a38621662101, type: 3}
   bossRoomRight: {fileID: 7317117301167462787, guid: 58eb0f1fcb4500c41a2b76e33825d29c, type: 3}
   bossRoomSpawned: 0
-  bottomCloseRooms:
-  - {fileID: 6248040896272027380, guid: cd31e25420d67ca41969401480f817ad, type: 3}
-  topCloseRooms:
-  - {fileID: 575300644676663347, guid: aed4d50af6991e14ea82fc9a6e7923c5, type: 3}
-  leftCloseRooms:
-  - {fileID: 7317117301167462787, guid: 17d1749cc14734247a61d4ae13561f4d, type: 3}
-  rightCloseRooms:
-  - {fileID: 5190967270946688468, guid: 2b9b6ae7643e74047882e2fdf2ec0d93, type: 3}
   allRooms:
   - {fileID: 7092370616761193092, guid: 10a212c0e15502047a4ea92119798111, type: 3}
   bottomRooms:
@@ -136,6 +141,18 @@ MonoBehaviour:
   - {fileID: 7092370616761193092, guid: 10a212c0e15502047a4ea92119798111, type: 3}
   - {fileID: 7092370616761193092, guid: 10a212c0e15502047a4ea92119798111, type: 3}
   - {fileID: 7092370616761193092, guid: 10a212c0e15502047a4ea92119798111, type: 3}
+  bottomCloseRooms:
+  - {fileID: 6248040896272027380, guid: cd31e25420d67ca41969401480f817ad, type: 3}
+  - {fileID: 6248040896272027380, guid: 49cc00ef3c197d247a1a9083787e3b91, type: 3}
+  topCloseRooms:
+  - {fileID: 575300644676663347, guid: aed4d50af6991e14ea82fc9a6e7923c5, type: 3}
+  - {fileID: 575300644676663347, guid: af6d55977fbbc8f4aa5a74db261eec50, type: 3}
+  leftCloseRooms:
+  - {fileID: 7317117301167462787, guid: 17d1749cc14734247a61d4ae13561f4d, type: 3}
+  - {fileID: 7317117301167462787, guid: 9e61fe2e44e5d5e4fb660b10401d2741, type: 3}
+  rightCloseRooms:
+  - {fileID: 5190967270946688468, guid: 2b9b6ae7643e74047882e2fdf2ec0d93, type: 3}
+  - {fileID: 5190967270946688468, guid: 2d7d5430874c5dc4eadd08dd3b3043aa, type: 3}
   closedRoom: {fileID: 6672195978037660585, guid: 9d97c1f1454ebdb4cac2e6334b8241d7, type: 3}
   salasContenedor: {fileID: 2019774016834730046}
   numeroMaximoSalas: 50

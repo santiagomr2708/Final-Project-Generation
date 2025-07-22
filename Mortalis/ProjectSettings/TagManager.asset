@@ -10,6 +10,7 @@ TagManager:
   - SpawPoint
   - Rooms
   - RoomsInitial
+  - Puzzle
   layers:
   - Default
   - TransparentFX
