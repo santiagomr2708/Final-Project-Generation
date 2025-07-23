@@ -11,6 +11,7 @@ TagManager:
   - Rooms
   - RoomsInitial
   - Enemy
+  - Puzzle
   layers:
   - Default
   - TransparentFX

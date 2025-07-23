@@ -1,8 +1,5 @@
 using UnityEngine;
-using Unity.UI;
-using Microsoft.Unity.VisualStudio.Editor;
 using Artemis;
-using Unity.VisualScripting;
 
 public class DeathsManager : MonoBehaviour
 {
@@ -28,14 +25,14 @@ public class DeathsManager : MonoBehaviour
             miniMap.SetActive(false);
             firstPersonController.maxSpeed = 15;
             flashLight.consumeSpeed = 10;
-            flashLight.rechargeSpeed = 2;
+            flashLight.rechargeSpeed = 5;
         }
         else if (player.cantidadVidas == 2)
         {
             miniMap.SetActive(false);
             firstPersonController.maxSpeed = 10;
             flashLight.consumeSpeed = 8;
-            flashLight.rechargeSpeed = 5;
+            flashLight.rechargeSpeed = 7;
             corazones[0].SetActive(false);
         }
         else if (player.cantidadVidas == 1)

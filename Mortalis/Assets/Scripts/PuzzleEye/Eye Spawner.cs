@@ -39,8 +39,6 @@ public class EyeSpawner : MonoBehaviour
                 else
                 {
                     Debug.Log("Ojo no instanciado por colisión.");
-
-
                 }
             }
         }

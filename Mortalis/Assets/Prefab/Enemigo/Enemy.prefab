@@ -50,11 +50,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2768624
+  m_Radius: 1.52
   m_Height: 3.6493297
   m_Direction: 1
   m_Center: {x: 0.06800604, y: 1.9174585, z: -0.04433036}
@@ -67,8 +67,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 1580325104573566919}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.63
-  m_Speed: 3
+  m_Radius: 0.8
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -94,8 +94,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderRadius: 15
   minDistanceFromCurrent: 10
-  detectionRadius: 12
+  detectionRadius: 50
   player: {fileID: 0}
+  enemyDetection: {fileID: 8300000, guid: 7cec3cd873019e64792787a86cb5d49a, type: 3}
 --- !u!1001 &4096656941399887437
 PrefabInstance:
   m_ObjectHideFlags: 0

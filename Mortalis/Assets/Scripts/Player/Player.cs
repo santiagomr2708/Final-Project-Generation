@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Artemis
 {
@@ -14,6 +16,8 @@ namespace Artemis
         [SerializeField] public int cantidadVidas = 3;
         private DatosDejuego datosDejuego;
         private DataManager dataManager;
+        [SerializeField] GameObject screamerCalavera;
+        [SerializeField] string nameScene;
 
         #region Input Handling
 
@@ -51,22 +55,27 @@ namespace Artemis
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            datosDejuego = new DatosDejuego();
-            dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
-            dataManager.GuardarDatos();
-            dataManager.CargarDatos();
+
+            dataManager = GameObject.FindAnyObjectByType<DataManager>();
+
+            // Obtener las vidas guardadas del DataManager
+            cantidadVidas = dataManager.datosDejuego.cantidadVidas;
 
         }
-        void OnCollisionEnter(Collision collision)
+
+        void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                datosDejuego.cantidadVidas--;
+                cantidadVidas--;
+
+                // Actualizar en DataManager
+                dataManager.datosDejuego.cantidadVidas = cantidadVidas;
                 dataManager.GuardarDatos();
+
+                SceneManager.LoadScene(nameScene);
             }
         }
-
-
         #endregion
     }
 }

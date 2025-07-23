@@ -12,10 +12,12 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
     private enum State { Wandering, Chasing }
     private State currentState = State.Wandering;
+    [SerializeField] AudioClip enemyDetection;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.Find("Player").transform;
         SetNewDestination();
     }
 
@@ -23,10 +25,14 @@ public class EnemyAI : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        // Cambiar de estado según la distancia al jugador
+        // Cambiar de estado segï¿½n la distancia al jugador
         if (distanceToPlayer <= detectionRadius)
         {
-            currentState = State.Chasing;
+            if (currentState != State.Chasing)
+            {
+                currentState = State.Chasing;
+                SoundFXManager.instance.PlaySoundFXClip(enemyDetection, transform, 1f, false);
+            }
         }
         else
         {
@@ -38,7 +44,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        // Ejecutar comportamiento según estado
+        // Ejecutar comportamiento segï¿½n estado
         switch (currentState)
         {
             case State.Wandering:
@@ -82,6 +88,12 @@ public class EnemyAI : MonoBehaviour
         }
 
         return origin;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
 

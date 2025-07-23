@@ -7,6 +7,8 @@ public class PuzzleEyeManager : MonoBehaviour
     private EyeSpawner[] eyeSpawner;
     public int eyeCount;
     [SerializeField] string sceneName;
+    int totalEyes = 0;
+    public int totalEyesCount => totalEyes;
 
     void Start()
     {
@@ -21,7 +23,10 @@ public class PuzzleEyeManager : MonoBehaviour
 
     void Update()
     {
-        int totalEyes = 0;
+        if (eyeSpawner == null || eyeSpawner.Length == 0) return;
+
+        totalEyes = 0;
+
         foreach (EyeSpawner spawner in eyeSpawner)
         {
             totalEyes += spawner.cantidadRealOjos;

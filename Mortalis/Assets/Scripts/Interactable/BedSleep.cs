@@ -34,6 +34,7 @@ public class BedSleep : MonoBehaviour
             {
                 player.transform.position = targetPosition;
             }
+            firstPersonController.enabled = true;
         }
     }
     

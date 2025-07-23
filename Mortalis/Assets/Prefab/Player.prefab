@@ -579,10 +579,9 @@ GameObject:
   - component: {fileID: 2467612607196503882}
   - component: {fileID: 1578300331611003434}
   - component: {fileID: 6540691667834397464}
-  - component: {fileID: 6069778342206761324}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -672,6 +671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FPController: {fileID: 2800791114104543674}
+  pauseMenu: {fileID: 0}
+  flashLight: {fileID: 6110214758915932992}
+  cantidadVidas: 3
 --- !u!114 &2800791114104543674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,22 +728,6 @@ MonoBehaviour:
   footstepClip: {fileID: 8300000, guid: 6816122207a080e43a6cc1d8fcd70de3, type: 3}
   footsetpInterval: 0.7
 --- !u!114 &6540691667834397464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8785384892681703305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a86f0d6a1263b114ea343ef3fe5e7fc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerReach: 5
-  hasKeys: 0
-  cameraMain: {fileID: 0}
-  audioKey: {fileID: 8300000, guid: b5fd3c3fa643cb443a2c8da00c5c941e, type: 3}
---- !u!114 &6069778342206761324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -940,6 +926,7 @@ MonoBehaviour:
   EnergiaActual: 100
   EnergiaMaxima: 100
   consumeSpeed: 10
+  rechargeSpeed: 10
   barraBateria: {fileID: 0}
 --- !u!4 &4331647561224478465 stripped
 Transform:
